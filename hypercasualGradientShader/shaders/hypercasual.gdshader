@@ -1,11 +1,13 @@
 shader_type spatial;
-render_mode specular_disabled, unshaded;
+render_mode unshaded;
 
+// Include the library, containing some shared functions.
 #include "hypercasualLib.gdshaderinc"
 
 
 
-// Uniforms
+// Uniforms.
+// Their names should be pretty self-explanatory.
 
 uniform bool useWorldSpace = false;
 

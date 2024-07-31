@@ -1,10 +1,12 @@
 shader_type sky;
 
+// Include the library, containing some shared functions.
 #include "hypercasualLib.gdshaderinc"
 
 
 
-// Uniforms
+// Uniforms.
+// Their names should be pretty self-explanatory.
 
 uniform float blendSmoothness : hint_range(0.05, 1.0, 0.01) = 1.0;
 
@@ -19,19 +21,21 @@ group_uniforms Debanding;
 group_uniforms;
 
 
-// Functions
 
+// Functions.
+
+// Whenever the sky is sampled.
 void sky() {
 	
-	// Copy the eye direction for manipulating.
-	vec3 dir = EYEDIR;
-	
+	// Calculate the gradient.
+	// Since EYEDIR is always a normalized value, we can use the -1 to 1 range.
 	float gradient = smoothstep(
 		-1.0,
 		1.0,
-		(dir.y / blendSmoothness)
+		(EYEDIR.y / blendSmoothness)
 	);
 	
+	// Mix the colors based on the gradient.
 	vec3 finalColor = blendGradient(colorA, colorB, gradient);
 	
 	if (deband) {
