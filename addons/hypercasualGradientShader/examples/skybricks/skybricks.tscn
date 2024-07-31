@@ -1,11 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://bdwxaix42p3an"]
 
-[ext_resource type="Shader" path="res://hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_3tdc0"]
-[ext_resource type="Shader" path="res://hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_f4sk8"]
-[ext_resource type="Script" path="res://hypercasualGradientShader/examples/wave.gd" id="3_k1p05"]
-[ext_resource type="Texture2D" uid="uid://cc54ifh4ioy4t" path="res://hypercasualGradientShader/examples/skybricks/luv.svg" id="4_bdcwm"]
-[ext_resource type="Script" path="res://hypercasualGradientShader/examples/sway.gd" id="5_ob00n"]
-[ext_resource type="Script" path="res://hypercasualGradientShader/examples/rotate.gd" id="6_theki"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_3tdc0"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_f4sk8"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/wave.gd" id="3_k1p05"]
+[ext_resource type="Texture2D" uid="uid://cc54ifh4ioy4t" path="res://addons/hypercasualGradientShader/examples/skybricks/luv.svg" id="4_bdcwm"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/sway.gd" id="5_ob00n"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/rotate.gd" id="6_theki"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_66a5a"]
 shader = ExtResource("1_3tdc0")

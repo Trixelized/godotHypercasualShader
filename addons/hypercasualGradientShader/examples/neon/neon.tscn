@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://c7oieibx8pufc"]
 
-[ext_resource type="Shader" path="res://hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_on7ys"]
-[ext_resource type="Shader" path="res://hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_qhkp0"]
-[ext_resource type="Texture2D" uid="uid://c7v7ymeqj3us0" path="res://hypercasualGradientShader/examples/neon/cargo.svg" id="3_0lju0"]
-[ext_resource type="Script" path="res://hypercasualGradientShader/examples/rotate.gd" id="3_qdgi1"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_on7ys"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_qhkp0"]
+[ext_resource type="Texture2D" uid="uid://c7v7ymeqj3us0" path="res://addons/hypercasualGradientShader/examples/neon/cargo.svg" id="3_0lju0"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/rotate.gd" id="3_qdgi1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_23gfw"]
 shader = ExtResource("1_on7ys")
