@@ -1,0 +1,310 @@
+[gd_scene load_steps=23 format=3 uid="uid://bdwxaix42p3an"]
+
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_3tdc0"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_f4sk8"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/wave.gd" id="3_k1p05"]
+[ext_resource type="Texture2D" uid="uid://cc54ifh4ioy4t" path="res://addons/hypercasualGradientShader/examples/skybricks/luv.svg" id="4_bdcwm"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/sway.gd" id="5_ob00n"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/rotate.gd" id="6_theki"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66a5a"]
+shader = ExtResource("1_3tdc0")
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorA = Color(0.682129, 0.631342, 0.954571, 1)
+shader_parameter/colorB = Color(0.873204, 0.914435, 0.974804, 1)
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="Sky" id="Sky_mov6m"]
+sky_material = SubResource("ShaderMaterial_66a5a")
+
+[sub_resource type="Environment" id="Environment_a5q8u"]
+background_mode = 2
+sky = SubResource("Sky_mov6m")
+tonemap_mode = 2
+tonemap_exposure = 0.2
+tonemap_white = 0.2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5qx6h"]
+render_priority = 0
+shader = ExtResource("2_f4sk8")
+shader_parameter/useWorldSpace = false
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 2.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(0.732081, 0.915222, 0.937924, 1)
+shader_parameter/colorBottom = Color(0.955761, 0.526732, 0.641982, 1)
+shader_parameter/colorFrontTop = Color(0.380984, 0.892721, 0.885354, 1)
+shader_parameter/colorFrontBottom = Color(0.435891, 0.587527, 1, 1)
+shader_parameter/colorBackTop = Color(0.380392, 0.894118, 0.886275, 1)
+shader_parameter/colorBackBottom = Color(0.435294, 0.588235, 1, 1)
+shader_parameter/colorLeftTop = Color(0.572549, 0.74902, 0.952941, 1)
+shader_parameter/colorLeftBottom = Color(0.447059, 0.411765, 0.768627, 1)
+shader_parameter/colorRightTop = Color(0.573137, 0.749001, 0.953308, 1)
+shader_parameter/colorRightBottom = Color(0.446102, 0.410482, 0.767696, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_x363t"]
+material = SubResource("ShaderMaterial_5qx6h")
+radial_segments = 24
+rings = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ln5sa"]
+render_priority = 0
+shader = ExtResource("2_f4sk8")
+shader_parameter/useWorldSpace = true
+shader_parameter/gradientOffset = -2.0
+shader_parameter/gradientSize = 2.0
+shader_parameter/blendSmoothness = 1.0
+shader_parameter/colorTop = Color(1, 1, 1, 1)
+shader_parameter/colorBottom = Color(0.2, 0.2, 0.2, 1)
+shader_parameter/colorFrontTop = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/colorFrontBottom = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/colorBackTop = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/colorBackBottom = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/colorLeftTop = Color(0.6, 0.6, 0.6, 1)
+shader_parameter/colorLeftBottom = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/colorRightTop = Color(1, 1, 1, 1)
+shader_parameter/colorRightBottom = Color(0.976983, 0.859935, 0.918971, 1)
+shader_parameter/useTexture = true
+shader_parameter/textureSource = ExtResource("4_bdcwm")
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2khsb"]
+material = SubResource("ShaderMaterial_ln5sa")
+orientation = 0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cyk76"]
+render_priority = 0
+shader = ExtResource("2_f4sk8")
+shader_parameter/useWorldSpace = false
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 1.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(0.997185, 0.564901, 0.67494, 1)
+shader_parameter/colorBottom = Color(0.898222, 0.474361, 0.573417, 1)
+shader_parameter/colorFrontTop = Color(0.978759, 0.777487, 0.725563, 1)
+shader_parameter/colorFrontBottom = Color(0.950517, 0.580642, 0.668101, 1)
+shader_parameter/colorBackTop = Color(0.980392, 0.776471, 0.72549, 1)
+shader_parameter/colorBackBottom = Color(0.950517, 0.580642, 0.668101, 1)
+shader_parameter/colorLeftTop = Color(0.870588, 0.513726, 0.807843, 1)
+shader_parameter/colorLeftBottom = Color(0.603922, 0.466667, 0.890196, 1)
+shader_parameter/colorRightTop = Color(0.872258, 0.512644, 0.807728, 1)
+shader_parameter/colorRightBottom = Color(0.605831, 0.466317, 0.889493, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_qlovc"]
+material = SubResource("ShaderMaterial_cyk76")
+
+[sub_resource type="BoxMesh" id="BoxMesh_kssu6"]
+material = SubResource("ShaderMaterial_cyk76")
+size = Vector3(1, 0.2, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ncknj"]
+render_priority = 0
+shader = ExtResource("2_f4sk8")
+shader_parameter/useWorldSpace = true
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 0.8
+shader_parameter/blendSmoothness = 0.2
+shader_parameter/colorTop = Color(0.99795, 1, 0.878625, 1)
+shader_parameter/colorBottom = Color(0.955761, 0.526732, 0.641982, 1)
+shader_parameter/colorFrontTop = Color(1, 1, 0.729412, 1)
+shader_parameter/colorFrontBottom = Color(0.925315, 0.636491, 0.41756, 1)
+shader_parameter/colorBackTop = Color(1, 1, 0.729412, 1)
+shader_parameter/colorBackBottom = Color(0.92549, 0.635294, 0.415686, 1)
+shader_parameter/colorLeftTop = Color(0.992157, 0.752941, 0.4, 1)
+shader_parameter/colorLeftBottom = Color(0.858824, 0.52549, 0.454902, 1)
+shader_parameter/colorRightTop = Color(0.990734, 0.753083, 0.400877, 1)
+shader_parameter/colorRightBottom = Color(0.857373, 0.524415, 0.453208, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_s2qr2"]
+material = SubResource("ShaderMaterial_ncknj")
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.1
+radial_segments = 24
+rings = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kt4df"]
+render_priority = 0
+shader = ExtResource("2_f4sk8")
+shader_parameter/useWorldSpace = true
+shader_parameter/gradientOffset = -4.0
+shader_parameter/gradientSize = 4.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(1, 1, 1, 1)
+shader_parameter/colorBottom = Color(0.542296, 0.610845, 0.912236, 1)
+shader_parameter/colorFrontTop = Color(0.847784, 0.817189, 0.971938, 1)
+shader_parameter/colorFrontBottom = Color(0.819983, 0.920638, 0.992153, 1)
+shader_parameter/colorBackTop = Color(0.847059, 0.815686, 0.972549, 1)
+shader_parameter/colorBackBottom = Color(0.819608, 0.921569, 0.992157, 1)
+shader_parameter/colorLeftTop = Color(0.854902, 0.917647, 0.980392, 1)
+shader_parameter/colorLeftBottom = Color(0.541176, 0.611765, 0.913725, 1)
+shader_parameter/colorRightTop = Color(0.854156, 0.917418, 0.978796, 1)
+shader_parameter/colorRightBottom = Color(0.541176, 0.611765, 0.913725, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qwch4"]
+material = SubResource("ShaderMaterial_kt4df")
+radius = 1.125
+height = 4.5
+radial_segments = 24
+rings = 5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_aqaay"]
+material = SubResource("ShaderMaterial_kt4df")
+radius = 1.5
+height = 6.0
+radial_segments = 24
+rings = 5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dr61n"]
+material = SubResource("ShaderMaterial_kt4df")
+radius = 0.75
+height = 3.0
+radial_segments = 24
+rings = 5
+
+[node name="Example" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_a5q8u")
+
+[node name="Meshes" type="Node3D" parent="."]
+
+[node name="Capsule" type="MeshInstance3D" parent="Meshes"]
+mesh = SubResource("CapsuleMesh_x363t")
+
+[node name="TitleHook" type="Node3D" parent="Meshes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51, -1, 0)
+script = ExtResource("3_k1p05")
+speed = 1.5
+addRotation = Vector3(0, 0, 10)
+
+[node name="Title" type="MeshInstance3D" parent="Meshes/TitleHook"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("PlaneMesh_2khsb")
+skeleton = NodePath("../../..")
+
+[node name="Ground" type="Node3D" parent="Meshes"]
+
+[node name="Cube" type="MeshInstance3D" parent="Meshes/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -1.5)
+mesh = SubResource("BoxMesh_qlovc")
+skeleton = NodePath("../..")
+
+[node name="Cube2" type="MeshInstance3D" parent="Meshes/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+mesh = SubResource("BoxMesh_qlovc")
+skeleton = NodePath("../..")
+
+[node name="Cube3" type="MeshInstance3D" parent="Meshes/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 1.5)
+mesh = SubResource("BoxMesh_qlovc")
+skeleton = NodePath("../..")
+
+[node name="Cube4" type="MeshInstance3D" parent="Meshes/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 3)
+mesh = SubResource("BoxMesh_kssu6")
+skeleton = NodePath("../..")
+
+[node name="Cube5" type="MeshInstance3D" parent="Meshes/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, -3)
+mesh = SubResource("BoxMesh_kssu6")
+skeleton = NodePath("../..")
+
+[node name="Coins" type="Node3D" parent="Meshes"]
+script = ExtResource("5_ob00n")
+speed = 0.75
+direction = Vector3(0, 0.2, 0)
+
+[node name="Coin" type="MeshInstance3D" parent="Meshes/Coins"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 3)
+mesh = SubResource("CylinderMesh_s2qr2")
+skeleton = NodePath("../..")
+script = ExtResource("6_theki")
+speed = -0.5
+
+[node name="Coin2" type="MeshInstance3D" parent="Meshes/Coins"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 1.5)
+mesh = SubResource("CylinderMesh_s2qr2")
+skeleton = NodePath("../..")
+script = ExtResource("6_theki")
+speed = -0.5
+offset = 0.1
+
+[node name="Coin3" type="MeshInstance3D" parent="Meshes/Coins"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -1.5)
+mesh = SubResource("CylinderMesh_s2qr2")
+skeleton = NodePath("../..")
+script = ExtResource("6_theki")
+speed = -0.5
+offset = 0.3
+
+[node name="Coin4" type="MeshInstance3D" parent="Meshes/Coins"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, -3)
+mesh = SubResource("CylinderMesh_s2qr2")
+skeleton = NodePath("../..")
+script = ExtResource("6_theki")
+speed = -0.5
+offset = 0.4
+
+[node name="Clouds" type="Node3D" parent="Meshes"]
+
+[node name="Cloud" type="MeshInstance3D" parent="Meshes/Clouds"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6, -4, -4)
+mesh = SubResource("CapsuleMesh_qwch4")
+skeleton = NodePath("../..")
+script = ExtResource("5_ob00n")
+speed = 0.25
+direction = Vector3(0, 0, -1.5)
+
+[node name="Cloud2" type="MeshInstance3D" parent="Meshes/Clouds"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3, -4, -2)
+mesh = SubResource("CapsuleMesh_aqaay")
+skeleton = NodePath("../..")
+script = ExtResource("5_ob00n")
+speed = 0.25
+offset = 0.4
+direction = Vector3(0, 0, -2)
+
+[node name="Cloud3" type="MeshInstance3D" parent="Meshes/Clouds"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -4, -4)
+mesh = SubResource("CapsuleMesh_dr61n")
+skeleton = NodePath("../..")
+script = ExtResource("5_ob00n")
+speed = 0.25
+offset = 0.8
+direction = Vector3(0, 0, -1)
+
+[node name="Cloud4" type="MeshInstance3D" parent="Meshes/Clouds"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -6, -4, 0)
+mesh = SubResource("CapsuleMesh_dr61n")
+skeleton = NodePath("../..")
+script = ExtResource("5_ob00n")
+speed = 0.25
+offset = -0.25
+direction = Vector3(0, 0, -1)
+
+[node name="CameraHook" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraHook"]
+transform = Transform3D(0.707107, -0.407599, 0.577809, 0, 0.817145, 0.576432, -0.707107, -0.407599, 0.577809, 10, 10, 10)
+projection = 1
+current = true
+size = 8.0
+near = 0.1
+far = 50.0

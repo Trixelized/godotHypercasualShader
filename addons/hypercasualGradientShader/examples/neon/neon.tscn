@@ -1,0 +1,189 @@
+[gd_scene load_steps=15 format=3 uid="uid://c7oieibx8pufc"]
+
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasualSky.gdshader" id="1_on7ys"]
+[ext_resource type="Shader" path="res://addons/hypercasualGradientShader/shaders/hypercasual.gdshader" id="2_qhkp0"]
+[ext_resource type="Texture2D" uid="uid://c7v7ymeqj3us0" path="res://addons/hypercasualGradientShader/examples/neon/cargo.svg" id="3_0lju0"]
+[ext_resource type="Script" path="res://addons/hypercasualGradientShader/examples/rotate.gd" id="3_qdgi1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_23gfw"]
+shader = ExtResource("1_on7ys")
+shader_parameter/blendSmoothness = 1.0
+shader_parameter/colorA = Color(0.211274, 0.0962811, 0.346845, 1)
+shader_parameter/colorB = Color(0.136769, 0.0565169, 0.189469, 1)
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="Sky" id="Sky_4f32e"]
+sky_material = SubResource("ShaderMaterial_23gfw")
+
+[sub_resource type="Environment" id="Environment_ph16a"]
+background_mode = 2
+sky = SubResource("Sky_4f32e")
+sky_rotation = Vector3(1.5708, 0, 0)
+tonemap_mode = 3
+tonemap_exposure = 0.5
+tonemap_white = 0.5
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.0
+fog_sky_affect = 0.0
+fog_height_density = 1.0
+adjustment_brightness = 1.49
+adjustment_contrast = 1.2
+adjustment_saturation = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vsam"]
+render_priority = 0
+shader = ExtResource("2_qhkp0")
+shader_parameter/useWorldSpace = true
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 2.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(0.62856, 0.376247, 0.91058, 1)
+shader_parameter/colorBottom = Color(0.0980392, 0, 0.333333, 1)
+shader_parameter/colorFrontTop = Color(0.980079, 0.636622, 1, 1)
+shader_parameter/colorFrontBottom = Color(0.345891, 0.186325, 0.953736, 1)
+shader_parameter/colorBackTop = Color(0.925995, 0.520718, 0.725981, 1)
+shader_parameter/colorBackBottom = Color(0.309973, 0.12183, 0.497483, 1)
+shader_parameter/colorLeftTop = Color(0.764677, 0.453878, 0.860345, 1)
+shader_parameter/colorLeftBottom = Color(0.346783, 0.332478, 0.715672, 1)
+shader_parameter/colorRightTop = Color(0.636087, 0.00313273, 0.917407, 1)
+shader_parameter/colorRightBottom = Color(0, 0.0857149, 0.276536, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_horcm"]
+material = SubResource("ShaderMaterial_8vsam")
+top_radius = 0.0
+bottom_radius = 0.45
+height = 0.9
+radial_segments = 24
+rings = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3ukk4"]
+render_priority = 0
+shader = ExtResource("2_qhkp0")
+shader_parameter/useWorldSpace = true
+shader_parameter/gradientOffset = 0.0
+shader_parameter/gradientSize = 2.0
+shader_parameter/blendSmoothness = 0.5
+shader_parameter/colorTop = Color(0.62856, 0.376247, 0.91058, 1)
+shader_parameter/colorBottom = Color(0.0980392, 0, 0.333333, 1)
+shader_parameter/colorFrontTop = Color(0.980079, 0.636622, 1, 1)
+shader_parameter/colorFrontBottom = Color(0.345891, 0.186325, 0.953736, 1)
+shader_parameter/colorBackTop = Color(0.925995, 0.520718, 0.725981, 1)
+shader_parameter/colorBackBottom = Color(0.309973, 0.12183, 0.497483, 1)
+shader_parameter/colorLeftTop = Color(0.764677, 0.453878, 0.860345, 1)
+shader_parameter/colorLeftBottom = Color(0.346783, 0.332478, 0.715672, 1)
+shader_parameter/colorRightTop = Color(0.636087, 0.00313273, 0.917407, 1)
+shader_parameter/colorRightBottom = Color(0, 0.0857149, 0.276536, 1)
+shader_parameter/useTexture = true
+shader_parameter/textureSource = ExtResource("3_0lju0")
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gxw0"]
+render_priority = 0
+shader = ExtResource("2_qhkp0")
+shader_parameter/useWorldSpace = false
+shader_parameter/gradientOffset = 1.5
+shader_parameter/gradientSize = 2.0
+shader_parameter/blendSmoothness = 0.85
+shader_parameter/colorTop = Color(0.206839, 0.198434, 0.507824, 1)
+shader_parameter/colorBottom = Color(0, 0, 0, 1)
+shader_parameter/colorFrontTop = Color(0.25892, 0.481203, 0.784573, 1)
+shader_parameter/colorFrontBottom = Color(0, 0, 0, 1)
+shader_parameter/colorBackTop = Color(0.858319, 0.300382, 0.569105, 1)
+shader_parameter/colorBackBottom = Color(0, 0, 0, 1)
+shader_parameter/colorLeftTop = Color(0.454272, 0.145145, 0.427316, 1)
+shader_parameter/colorLeftBottom = Color(0, 0, 0, 1)
+shader_parameter/colorRightTop = Color(0.730013, 0.192813, 0.67251, 1)
+shader_parameter/colorRightBottom = Color(0, 0, 0, 1)
+shader_parameter/useTexture = false
+shader_parameter/deband = true
+shader_parameter/debandDepth = 256.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_af511"]
+material = SubResource("ShaderMaterial_2gxw0")
+radius = 2.0
+height = 2.0
+radial_segments = 24
+rings = 24
+is_hemisphere = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_ps2te"]
+material = SubResource("ShaderMaterial_8vsam")
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Curve" id="Curve_27030"]
+_data = [Vector2(0, 0), 0.0, 2.00343, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.05115, 0.0, 0, 0]
+point_count = 3
+
+[node name="Neon" type="Node3D"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_ph16a")
+
+[node name="Doodads" type="Node3D" parent="."]
+
+[node name="Statue" type="Node3D" parent="Doodads"]
+
+[node name="Cone1" type="MeshInstance3D" parent="Doodads/Statue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 0)
+mesh = SubResource("CylinderMesh_horcm")
+skeleton = NodePath("../..")
+
+[node name="Cone2" type="MeshInstance3D" parent="Doodads/Statue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.5, 0)
+mesh = SubResource("CylinderMesh_horcm")
+skeleton = NodePath("../..")
+
+[node name="Cone3" type="MeshInstance3D" parent="Doodads/Statue"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1, -0.5, 0)
+mesh = SubResource("CylinderMesh_horcm")
+skeleton = NodePath("../..")
+
+[node name="Cone4" type="MeshInstance3D" parent="Doodads/Statue"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 1, 0.5, 0)
+mesh = SubResource("CylinderMesh_horcm")
+skeleton = NodePath("../..")
+
+[node name="BoxA" type="CSGBox3D" parent="Doodads/Statue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+size = Vector3(0.8, 0.8, 0.8)
+material = SubResource("ShaderMaterial_3ukk4")
+script = ExtResource("3_qdgi1")
+speed = -0.1
+
+[node name="BoxB" type="CSGBox3D" parent="Doodads/Statue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(0.9, 0.9, 0.9)
+material = SubResource("ShaderMaterial_3ukk4")
+
+[node name="Bubbles" type="Node3D" parent="Doodads"]
+
+[node name="Bubble1" type="MeshInstance3D" parent="Doodads/Bubbles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
+mesh = SubResource("SphereMesh_af511")
+skeleton = NodePath("../../Statue")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="Doodads/Bubbles"]
+amount = 16
+lifetime = 5.0
+local_coords = true
+mesh = SubResource("BoxMesh_ps2te")
+emission_shape = 2
+emission_sphere_radius = 2.5
+gravity = Vector3(0, 0, 0)
+scale_amount_curve = SubResource("Curve_27030")
+
+[node name="CameraHook" type="Node3D" parent="."]
+transform = Transform3D(0.707106, -0.270598, 0.653281, 0, 0.92388, 0.382683, -0.707106, -0.270598, 0.653281, 0, 0, 0)
+script = ExtResource("3_qdgi1")
+speed = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="CameraHook"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+fov = 45.0
