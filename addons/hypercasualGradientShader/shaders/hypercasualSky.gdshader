@@ -39,7 +39,7 @@ void sky() {
 	vec3 finalColor = blendGradient(colorA, colorB, gradient);
 	
 	if (deband) {
-		finalColor += valveDeband(FRAGCOORD.xy, debandDepth);
+		finalColor += valveDeband(FRAGCOORD.xy, debandDepth, TIME);
 	}
 	
 	COLOR = finalColor;

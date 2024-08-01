@@ -49,7 +49,7 @@ void fragment() {
 	}
 	
 	if (deband) {
-		finalColor += valveDeband(FRAGCOORD.xy, debandDepth);
+		finalColor += valveDeband(FRAGCOORD.xy, debandDepth, TIME);
 	}
 	
 	ALBEDO = finalColor;
