@@ -102,7 +102,7 @@ void fragment() {
 	
 	// Calculate the weighted normal. This makes each axis stand out.
 	// Then get the absolute. We already know the right axis' color.
-	vec3 weightedNormal = pow(normal, vec3(1.0 / blendSmoothness));
+	vec3 weightedNormal = pow(abs(normal), vec3(1.0 / blendSmoothness));
 	vec3 absNormal = abs(weightedNormal);
 	
 	// Get the sum of the new normal, then normalize.
