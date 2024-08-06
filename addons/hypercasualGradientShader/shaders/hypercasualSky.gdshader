@@ -42,6 +42,6 @@ void sky() {
 		finalColor += valveDeband(FRAGCOORD.xy, debandDepth, TIME);
 	}
 	
-	COLOR = finalColor;
+	COLOR = finalColor * COLOR.rgb;
 	
 }

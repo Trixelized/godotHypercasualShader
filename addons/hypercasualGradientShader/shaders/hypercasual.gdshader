@@ -131,6 +131,6 @@ void fragment() {
 		finalColor += valveDeband(FRAGCOORD.xy, debandDepth, TIME);
 	}
 	
-	ALBEDO = finalColor;
+	ALBEDO = finalColor * COLOR.rgb;
 	
 }
